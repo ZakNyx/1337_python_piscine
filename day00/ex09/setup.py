@@ -5,6 +5,7 @@ setup(
     version='0.0.1',
     author='zihirri',
     author_email='zihirri@student.1337.ma',
+    url="https://github.com/ZakNyx/1337_python_piscine/tree/main/day00/ex09",
     description='A sample test package',
     packages=find_packages(),
     classifiers=[
