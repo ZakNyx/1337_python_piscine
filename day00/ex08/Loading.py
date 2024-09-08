@@ -1,4 +1,3 @@
-import sys
 from time import sleep
 
 def ft_tqdm(lst: range) -> None:
@@ -12,8 +11,8 @@ def ft_tqdm(lst: range) -> None:
 
     Yields
     ------
-    Any
-        The current item in the range.
+    None
+        The function does not return anything, but yields control back to the loop.
     """
     total = len(lst)
     bar_length = 50
@@ -22,23 +21,19 @@ def ft_tqdm(lst: range) -> None:
         percent = (i + 1) / total
         filled_length = int(bar_length * percent)
         bar = '█' * filled_length + '-' * (bar_length - filled_length)
-        percentage = percent * 100
+        percentage = int(percent * 100)
 
-        sys.stdout.write(f'\r{int(percentage)}% |{bar}| {i + 1}/{total}\n')
-        sys.stdout.flush()
+        print(f'{percentage}% |{bar}| {i + 1}/{total}')
 
         yield item
 
-    sys.stdout.write('\n')
-    sys.stdout.flush()
+    print('\n')
 
 
 def main():
     for item in ft_tqdm(range(333)):
-        pass
         sleep(0.005)
 
 
 if __name__ == "__main__":
     main()
-

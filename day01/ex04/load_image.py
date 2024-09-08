@@ -30,8 +30,6 @@ def ft_load(path: str) -> np.array:
         if not path.lower().endswith(("jpeg", "jpg")):
             raise AssertionError("Wrong extention only JPG, JPEG allowed")
         img = Image.open(path)
-        print(f"The shape of image is: "
-              f"({img.size[1]}, {img.size[0]}, {img.layers})")
         img = np.asarray(img)
         return img
     except AssertionError as error:
