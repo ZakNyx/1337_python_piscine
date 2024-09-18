@@ -11,7 +11,7 @@ class Character(ABC):
     """
 
     @abstractmethod
-    def __init__(self, first_name, is_alive=True):
+    def __init__(self, first_name, family_name, is_alive=True):
         """
         Initializes a character.
 
@@ -21,8 +21,8 @@ class Character(ABC):
         """
         self.first_name = first_name
         self.is_alive = is_alive
+        self.family_name = family_name
 
-    @abstractmethod
     def die(self):
         """
         Marks the character as dead.
@@ -30,6 +30,12 @@ class Character(ABC):
         This method should be overridden by subclasses.
         """
         pass
+
+    def __str__(self):
+        return f'f Vector: ({self.family_name}, {self.eyes}, {self.hairs})'
+    
+    def __repr__(self):
+        return self.__str__()
 
 
 class Stark(Character):
@@ -49,7 +55,9 @@ class Stark(Character):
         - first_name (str): The first name of the Stark character.
         - is_alive (bool, optional): The living status of the character, default is True.
         """
-        super().__init__(first_name, is_alive)
+        self.first_name = first_name
+        self.is_alive = is_alive
+
 
     def die(self):
         """
