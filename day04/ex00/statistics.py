@@ -3,14 +3,14 @@ from typing import Any, List
 
 def ft_statistics(*args: Any, **kwargs: Any) -> None:
     """
-    Calculate various statistics (mean, median, quartiles, variance, and standard deviation)
-    based on the provided *args and **kwargs.
-
+    Calculate various statistics (mean, median, quartiles, variance,
+    and standard deviation) based on the provided *args and **kwargs.
+    ----------
     Args:
         *args: A variable number of numerical values.
         **kwargs: Keyword arguments specifying which statistics to calculate.
                   Possible values: 'mean', 'median', 'quartile', 'var', 'std'.
-
+    ----------
     Returns:
         None: Prints the requested statistics or 'ERROR' for invalid inputs.
     """
@@ -25,10 +25,10 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     def mean(data: List[float]) -> float:
         """
         Calculate the mean of the data.
-        
+        ----------
         Args:
             data (List[float]): A list of numbers.
-
+        ----------
         Returns:
             float: The mean of the data.
         """
@@ -40,10 +40,10 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     def median(data: List[float]) -> float:
         """
         Calculate the median of the data.
-        
+        ----------
         Args:
             data (List[float]): A sorted list of numbers.
-
+        ----------
         Returns:
             float: The median of the data.
         """
@@ -56,26 +56,30 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     def quartiles(data: List[float]) -> List[float]:
         """
         Calculate the first and third quartiles of the data.
-        
+        ----------
         Args:
             data (List[float]): A sorted list of numbers.
-
+        ----------
         Returns:
             List[float]: A list containing the first and third quartiles.
         """
         mid = len(data) // 2
         q1 = median(data[:mid])
-        q3 = median(data[mid:]) if len(data) % 2 == 0 else median(data[mid + 1:])
+        if len(data) % 2 == 0:
+            q3 = median(data[mid:])
+        else:
+            q3 = median(data[mid + 1:])
+
         return [q1, q3]
 
     def variance(data: List[float], m: float) -> float:
         """
         Calculate the variance of the data.
-        
+        ----------
         Args:
             data (List[float]): A list of numbers.
             m (float): The mean of the data.
-
+        ----------
         Returns:
             float: The variance of the data.
         """
@@ -84,10 +88,10 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     def std_dev(var: float) -> float:
         """
         Calculate the standard deviation of the data.
-        
+        ----------
         Args:
             var (float): The variance of the data.
-
+        ----------
         Returns:
             float: The standard deviation of the data.
         """
