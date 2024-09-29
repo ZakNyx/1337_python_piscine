@@ -72,3 +72,4 @@ class Calculator:
             result.append(v1 - V2[i])
         formatted_result = [f"{x:.1f}" for x in result]
         print(f"Sous Vector is: {formatted_result}")
+
