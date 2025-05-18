@@ -1,7 +1,7 @@
 import math
 
 def NULL_not_found(object: any) -> int:
-    type_name = type(object).__name__  # Get the type name of the object
+    type_name = type(object).__name__
     
     # Dictionary of "null-like" values
     NULL_dict = {

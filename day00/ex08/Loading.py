@@ -1,5 +1,7 @@
 from time import sleep
 
+from tqdm import tqdm
+
 def ft_tqdm(lst: range) -> None:
     """
     A simple implementation of a progress bar that iterates over a given range and yields items.
@@ -23,17 +25,19 @@ def ft_tqdm(lst: range) -> None:
         bar = '█' * filled_length + '-' * (bar_length - filled_length)
         percentage = int(percent * 100)
 
-        print(f'{percentage}% |{bar}| {i + 1}/{total}')
-
+        print(f'\r{percentage}% |{bar}| {i + 1}/{total}', end='', flush=True)
         yield item
 
-    print('\n')
+    print()
 
 
 def main():
-    for item in ft_tqdm(range(333)):
+    for elem in ft_tqdm(range(333)):
         sleep(0.005)
-
+    print()
+    for elem in tqdm(range(333)):
+        sleep(0.005)
+    print()
 
 if __name__ == "__main__":
     main()
